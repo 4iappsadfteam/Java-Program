@@ -1,6 +1,10 @@
 Basic Java Execute with Command prompt
 http://www.codejava.net/java-core/tools/using-javac-command
 
+*******************----------------------------******************************
+javac -cp activation.jar;javax.mail-1.4.4.jar;mail.jar;ojdbc7.jar Email.java
+*******************----------------------------******************************
+
 
 1.    Compiling a single source file
 
