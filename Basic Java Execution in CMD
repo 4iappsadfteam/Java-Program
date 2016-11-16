@@ -1,2 +1,55 @@
 Basic Java Execute with Command prompt
 http://www.codejava.net/java-core/tools/using-javac-command
+
+
+1.    Compiling a single source file
+
+                                              javac HelloWorld.java
+
+2.    Compiling multiple source files
+Compile three source files at once, type: 
+
+                                              javac Program1.java Program2.java Program3.java
+ 
+Compile all source files whose filenames start with Swing: 
+
+                                              javac Swing*.java
+ 
+Compile all source files:
+
+                                              javac *.java
+
+3.    Compiling a source file which has dependencies
+It’s very common that a Java program depends on one or more external libraries (jar files). Use the flag -classpath (or -cp) to tell the compiler where to look for external libraries (by default, the compiler is looking in bootstrap classpath and in CLASSPATH environment variable).
+
+Compile a source file which depends on an external library:
+
+                                                javac -classpath mail.jar EmailSender.java
+
+Or:
+
+                                                javac -cp mail.jar EmailSender.java
+Compile a source file which depends on multiple libraries:
+
+                                                javac -cp lib1.jar;lib2.jar;lib3.jar MyProgram.java
+Or we can use the wildcard character *:
+
+                                                 javac -cp *; MyProgram.java
+That will instruct the compiler to look for all available libraries in the same directory as the source file.
+
+4.    Specifying destination directory
+Use the -d directory option to specify where the compiler puts the generated .class files. For example:
+
+
+                                                  javac -d classes MyProgram.java
+ 
+NOTES:
+
+The compiler will complain if the specified directory does not exist, and it won’t create one.
+If the source file is under a package, the compiler will create package structure in the destination directory.
+
+5.    Specifying source path directory
+We can tell the compiler where to search for the source files by using the -sourcepath directory option. For example:
+
+
+                                                    javac -sourcepath src MyProgram.java
