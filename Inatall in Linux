@@ -1,0 +1,1 @@
+java -cp .:activation.jar:javax.mail-1.4.4.jar:ojdbc7.jar:jsoup-1.10.1.jar:mail.jar Email 
