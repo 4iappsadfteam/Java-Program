@@ -1,0 +1,4 @@
+String s="hello";  
+System.out.println(s.substring(0,2));//he  
+
+contains in java
