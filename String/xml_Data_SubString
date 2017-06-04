@@ -1,0 +1,49 @@
+***********SubString******
+
+
+
+
+    public static void main (String arg[]) throws ParserConfigurationException {
+      
+        String xml="<env:Envelope xmlns:env=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:wsa=\"http://www.w3.org/2005/08/addressing\" xmlns:typ=\"http://xmlns.oracle.com/apps/prc/po/editDocument/purchaseOrderServiceV2/types/\">\n" + 
+        "  <env:Header>\n" + 
+        "     <wsa:Action>http://xmlns.oracle.com/apps/prc/po/editDocument/purchaseOrderServiceV2//PurchaseOrderService/createPurchaseOrderResponse</wsa:Action>\n" + 
+        "     <wsa:MessageID>urn:uuid:be19f6d4-2ca9-4cf3-b5dc-f308b850d074</wsa:MessageID>\n" + 
+        "     <wsse:Security env:mustUnderstand=\"1\" xmlns:wsse=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\">\n" + 
+        "        <wsu:Timestamp wsu:Id=\"Timestamp-lEr2LYddopkcRT1eZ0j7cw22\" xmlns:wsu=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd\">\n" + 
+        "           <wsu:Created>2017-06-03T08:26:42Z</wsu:Created>\n" + 
+        "           <wsu:Expires>2017-06-06T19:46:42Z</wsu:Expires>\n" + 
+        "        </wsu:Timestamp>\n" + 
+        "     </wsse:Security>\n" + 
+        "  </env:Header>\n" + 
+        "  <env:Body>\n" + 
+        "     <ns0:createPurchaseOrderResponse xmlns:ns0=\"http://xmlns.oracle.com/apps/prc/po/editDocument/purchaseOrderServiceV2/types/\">\n" + 
+        "        <ns1:result xsi:type=\"ns0:RequestResults\" xmlns:ns1=\"http://xmlns.oracle.com/apps/prc/po/editDocument/purchaseOrderServiceV2/types/\" xmlns:ns0=\"http://xmlns.oracle.com/apps/prc/po/editDocument/purchaseOrderServiceV2/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n" + 
+        "           <ns0:POHeaderId>300000006641288</ns0:POHeaderId>\n" + 
+        "           <ns0:OrderNumber>59</ns0:OrderNumber>\n" + 
+        "           <ns0:SoldToLegalEntityId>300000002429003</ns0:SoldToLegalEntityId>\n" + 
+        "           <ns0:ChangeOrderNumber xsi:nil=\"true\"/>\n" + 
+        "           <ns0:RequestStatus>SUCCESS</ns0:RequestStatus>\n" + 
+        "        </ns1:result>\n" + 
+        "     </ns0:createPurchaseOrderResponse>\n" + 
+        "  </env:Body>\n" + 
+        "</env:Envelope>";
+      
+
+       
+       int firstHeadIndex=xml.indexOf("POHeaderId>");
+       int lastHeadIndex=xml.lastIndexOf("</ns0:POHea");
+       System.err.println("first==="+firstHeadIndex);
+       System.err.println("Last==="+lastHeadIndex);
+       System.out.println("==RESULT==="+xml.substring(firstHeadIndex+11, lastHeadIndex));   
+       
+       int firstOrderIndex=xml.indexOf("OrderNumber>");
+       int lastOrderIndex=xml.indexOf("</ns0:OrderNumber>");
+       //System.err.println("Order first "+firstOrderIndex);
+        //System.err.println("Order Last"+lastOrderIndex);
+        System.err.println("Order number++"+xml.substring(firstOrderIndex+12, lastOrderIndex));
+        
+       
+
+
+    }
