@@ -1,0 +1,33 @@
+
+import java.io.StringReader;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import org.w3c.dom.Document;
+import org.xml.sax.InputSource;
+
+
+
+
+public class xmlParsing {
+    public static void main(String args[]){
+        try{
+            String xml = "<customer><age>35</age><name>Aravind</name></customer>";
+            
+            DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+            InputSource src = new InputSource();
+            src.setCharacterStream(new StringReader(xml));
+
+            Document doc = builder.parse(src);
+            String age = doc.getElementsByTagName("age").item(0).getTextContent();
+            System.out.println(age);
+            String name = doc.getElementsByTagName("name").item(0).getTextContent();
+            System.out.println(name);
+            
+        }
+       catch(Exception e){
+           System.out.println(e);
+           
+       }
+    }
+    
+}
