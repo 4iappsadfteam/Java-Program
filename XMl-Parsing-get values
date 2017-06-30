@@ -1,0 +1,25 @@
+
+
+            String str ="   <env:Body>\n" +
+                "      <ns0:createPurchaseOrderResponse xmlns:ns0=\"http://xmlns.oracle.com/apps/prc/po/editDo/\">\n" +
+                "         <ns1:result xsi:type=\"ns0:RequestResults\" xmlns:ns1=\"http://xmlns.oracle.com/apps/pr2/\" xmlns:xsi=\"http://www.w3.org/\">\n" +
+                "            <ns0:POHeaderId>46546</ns0:POHeaderId>\n" +
+                "            <ns0:OrderNumber>181654</ns0:OrderNumber>\n" +
+                "            <ns0:SoldToLegalEntityId>654</ns0:SoldToLegalEntityId>\n" +
+                "            <ns0:ChangeOrderNumber xsi:nil=\"true\"/>\n" +
+                "            <ns0:RequestStatus>SUCCESS</ns0:RequestStatus>\n" +
+                "         </ns1:result>\n" +
+                "      </ns0:createPurchaseOrderResponse>\n" +
+                "   </env:Body>\n" +
+                "</env:Envelope>";
+				
+				DocumentBuilder db = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+                InputSource is = new InputSource();
+                is.setCharacterStream(new StringReader(str));
+                Document doc = db.parse(is);
+                NodeList nodes = doc.getElementsByTagName("env:Envelope");
+                Node nNode = nodes.item(0);
+                Element element = (Element)nNode;
+                String data=element.getElementsByTagName("ns0:OrderNumber").item(0).getTextContent().toString();
+          
+          System.err.println("==OUTPUT=="+data);   
