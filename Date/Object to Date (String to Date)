@@ -1,0 +1,12 @@
+Object to Date 
+
+
+String stringDate = SalesCollectionReportRow.getACTUAL_PERIOD_Obj().toString(); //"06/27/2007";
+DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+Date startDate;
+startDate = df.parse(stringDate);
+// String newDateString = df.format(startDate);
+// System.err.println("New date string : "+newDateString);    
+java.sql.Date sqlDate = new java.sql.Date(startDate.getTime());
+System.err.println("--sqlDate---" + sqlDate);
+oracle.jbo.domain.Date domainDate = new oracle.jbo.domain.Date(sqlDate);
