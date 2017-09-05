@@ -1,0 +1,63 @@
+
+
+ public String getPeriod() {
+       String peroid = null;
+       ViewObject dtlsVO =
+           ADFUtils.findIterator("XxbfmBgOutDtls_VO1Iterator").getViewObject();
+       Calendar now = Calendar.getInstance();
+       if (dtlsVO.getCurrentRow()!=null) {
+           oracle.jbo.domain.Date dt =
+               (oracle.jbo.domain.Date)dtlsVO.getCurrentRow().getAttribute("InterestPayDate");
+           if (dt != null) {
+               java.util.Date ts = (java.util.Date)dt.dateValue();
+               now.setTime(ts);
+           }
+           System.err.println("==L==" + now);
+       } 
+       int ye = now.get(Calendar.YEAR) - 2000;
+       int mon = (now.get(Calendar.MONTH) + 1);
+       String monthString;
+       switch (mon) {
+       case 1:
+           monthString = "Jan";
+           break;
+       case 2:
+           monthString = "Feb";
+           break;
+       case 3:
+           monthString = "Mar";
+           break;
+       case 4:
+           monthString = "Apr";
+           break;
+       case 5:
+           monthString = "May";
+           break;
+       case 6:
+           monthString = "Jun";
+           break;
+       case 7:
+           monthString = "Jul";
+           break;
+       case 8:
+           monthString = "Aug";
+           break;
+       case 9:
+           monthString = "Sep";
+           break;
+       case 10:
+           monthString = "Oct";
+           break;
+       case 11:
+           monthString = "Nov";
+           break;
+       case 12:
+           monthString = "Dec";
+           break;
+       default:
+           monthString = "Jan";
+           break;
+       }
+       peroid = monthString.concat("-") + "" + ye;
+       return peroid;
+   }
