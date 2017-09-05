@@ -1,6 +1,4 @@
-
-
- public String getPeriod() {
+  public String getPeriod() {
        String peroid = null;
        ViewObject dtlsVO =
            ADFUtils.findIterator("XxbfmBgOutDtls_VO1Iterator").getViewObject();
