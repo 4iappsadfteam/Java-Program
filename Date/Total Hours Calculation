@@ -1,0 +1,20 @@
+    
+    public Number getTotHours() {
+        if (getStartDate() != null && getEndDate() != null && getHoursAssigned()!=null) {
+            Number diff = null;
+            java.sql.Date sdate = (java.sql.Date)getStartDate().dateValue();
+            java.sql.Date cdate = (java.sql.Date)getEndDate().dateValue();
+            int days =
+                (int)((cdate.getTime() - sdate.getTime()) / (1000 * 60 * 60 *24));
+            System.err.println("==diff==" + days);
+            if (days < 0) {
+                diff = new Number(0);
+            } else {
+                diff = new Number(days);
+            }
+           // setTotHours(getHoursAssigned().multiply(diff));
+              return getHoursAssigned().multiply(diff);
+        } else {
+            return (Number)getAttributeInternal(TOTHOURS);
+        }
+         }
