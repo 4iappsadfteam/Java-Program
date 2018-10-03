@@ -1,0 +1,14 @@
+
+
+System.out.println("DATE==><==" +getDisplayedDate(valueChangeEvent.getNewValue().toString()));
+                           
+                           
+public static String getDisplayedDate(String dateInString) throws ParseException {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        java.util.Date date = formatter.parse(dateInString);
+        System.out.println(date);
+        System.out.println(formatter.format(date));
+        SimpleDateFormat ft = new SimpleDateFormat("dd/MMM/yyyy");
+        System.out.println("FT====>>>" + ft.format(date));
+        return ft.format(date);
+    }
