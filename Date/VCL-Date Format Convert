@@ -1,0 +1,11 @@
+
+
+    public static String getDisplayedDateVCL(String dateInString) throws ParseException {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");//10/4/2018
+        java.util.Date date = formatter.parse(dateInString);
+        System.out.println(date);
+        System.out.println(formatter.format(date));
+        SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd");
+        System.out.println("Final Out====>>>" + ft.format(date));
+        return ft.format(date);
+    }
